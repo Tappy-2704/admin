@@ -2,8 +2,11 @@ import { lazy, Suspense } from "react";
 import { Navigate, Outlet, useRoutes } from "react-router-dom";
 import { paths } from "./paths";
 import { SplashScreen } from "@/components/loading";
-import MainLayout from "@/layouts/main-layout";
-const HomePage = lazy(() => import("@/pages/home/index"));
+import OverviewLayout from "@/layouts/overview-layout";
+const ArticlesListPage = lazy(() => import("@/pages/articles/list"));
+const CategoryListPage = lazy(() => import("@/pages/category/list"));
+const TopicListPage = lazy(() => import("@/pages/topic/list"));
+const UserListPage = lazy(() => import("@/pages/user/list"));
 
 export function Router() {
   return useRoutes([
@@ -17,14 +20,26 @@ export function Router() {
       children: [
         {
           element: (
-            <MainLayout>
+            <OverviewLayout>
               <Outlet />
-            </MainLayout>
+            </OverviewLayout>
           ),
           children: [
             {
-              path: paths.root,
-              element: <HomePage />,
+              path: paths.article.list,
+              element: <ArticlesListPage />,
+            },
+            {
+              path: paths.category.list,
+              element: <CategoryListPage />,
+            },
+            {
+              path: paths.topic.list,
+              element: <TopicListPage />,
+            },
+            {
+              path: paths.user.list,
+              element: <UserListPage />,
             },
           ],
         },

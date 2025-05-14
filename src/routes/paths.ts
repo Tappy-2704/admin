@@ -1,5 +1,17 @@
 export const paths = {
   root: "/",
+  category: {
+    list: "/cat-list",
+  },
+  user: {
+    list: "/user-list",
+  },
+  article: {
+    list: "/article-list",
+  },
+  topic: {
+    list: "/topic-list",
+  },
 
   comingSoon: "/coming-soon",
   maintenance: "/maintenance",

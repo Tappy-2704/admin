@@ -1,7 +1,6 @@
-
 // ----------------------------------------------------------------------
 
-import HomeView from "@/sections/home/home-view";
+import { TopicListView } from "@/sections/topic";
 
 const metadata = "Home";
 
@@ -13,7 +12,7 @@ export default function Page() {
       </div>
 
       <div>
-        <HomeView />
+        <TopicListView />
       </div>
     </>
   );
