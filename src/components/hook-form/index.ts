@@ -1,2 +1,3 @@
 export * from "./fields";
-export * from './form-provider';
+export * from "./rhf-texarea-field";
+export * from "./form-provider";

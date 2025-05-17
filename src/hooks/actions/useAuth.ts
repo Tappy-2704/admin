@@ -17,7 +17,6 @@ export function useUser() {
   const isEnabled =
     !isExpiredToken && Boolean(token && token.trim().length > 0);
 
-
   const { data, isLoading, error, isFetching } = useQuery({
     queryKey: ["get-info-user", token],
     queryFn: fetchUser,
@@ -36,9 +35,16 @@ export function useUser() {
   };
 }
 
-export const updateRef = async (inviteCode: string) => {
-  const response = await apiClient.post("/users/update-ref", {
-    inviteCode,
+export const login = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
+  const response = await apiClient.post(`/auth/admin/login`, {
+    email,
+    password,
   });
   return response.data;
 };

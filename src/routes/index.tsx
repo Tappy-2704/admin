@@ -7,9 +7,15 @@ const ArticlesListPage = lazy(() => import("@/pages/articles/list"));
 const CategoryListPage = lazy(() => import("@/pages/category/list"));
 const TopicListPage = lazy(() => import("@/pages/topic/list"));
 const UserListPage = lazy(() => import("@/pages/user/list"));
+const LoginPage = lazy(() => import("@/pages/auth/login"));
 
 export function Router() {
   return useRoutes([
+    {
+      path: "/",
+      element: <LoginPage />,
+      index: true,
+    },
     {
       path: "/",
       element: (

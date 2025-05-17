@@ -1,4 +1,4 @@
-export const ACCESS_TOKEN = "ai_access_token";
+export const ACCESS_TOKEN = "TP_token";
 export const LOGOUT_REQUIRED = "LOGOUT_REQUIRED";
 export const LANGUAGE = "language";
 export const SCREEN_SIZE = {

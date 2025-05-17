@@ -1,5 +1,6 @@
 export const paths = {
   root: "/",
+
   category: {
     list: "/cat-list",
   },
@@ -11,6 +12,9 @@ export const paths = {
   },
   topic: {
     list: "/topic-list",
+  },
+  auth: {
+    login: "/login",
   },
 
   comingSoon: "/coming-soon",
