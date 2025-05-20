@@ -30,12 +30,14 @@ const FormPopup = ({ open, item, onClose }: Props) => {
     name: item?.name ?? "",
     vn: item?.vn.toString() ?? "",
     en: item?.en.toString() ?? "",
+    vocabulary: item?.vocabulary.toString() ?? "",
   };
   const schema = zod.object({
     name: zod.string().nonempty("Name is required"),
     catId: zod.string().nonempty("Category is required"),
     vn: zod.string().nonempty("Vn is required"),
     en: zod.string().nonempty("En is required"),
+    vocabulary: zod.string().nonempty("Vocabulary is required"),
   });
   const methods = useForm({
     resolver: zodResolver(schema),
@@ -56,8 +58,9 @@ const FormPopup = ({ open, item, onClose }: Props) => {
         name: data?.name,
         catId: data.catId ?? "",
         articleId: item._id,
-        vn: data.vn,
-        en: data.en,
+        vn: data.vn.split(","),
+        en: data.en.split(","),
+        vocabulary: data.vocabulary,
       };
       updateCatApi(body, {
         onSuccess: () => {
@@ -76,9 +79,11 @@ const FormPopup = ({ open, item, onClose }: Props) => {
       const body = {
         catId: data.catId,
         name: data.name,
-        vn: data.vn,
-        en: data.en,
+        vn: data.vn.split(","),
+        en: data.en.split(","),
+        vocabulary: data.vocabulary,
       };
+
       createArticleApi(body, {
         onSuccess: () => {
           showToast("success", t("Create successful!"));
@@ -107,6 +112,7 @@ const FormPopup = ({ open, item, onClose }: Props) => {
     <Popup
       open={open}
       title={item ? "Update Article" : "Create Article"}
+      className="w-full"
       onClose={() => {
         onClose();
         reset();
@@ -130,6 +136,7 @@ const FormPopup = ({ open, item, onClose }: Props) => {
             placeholder={t("Enter EN")}
             InputLabelProps={{ shrink: true }}
           />
+          <Field.Editor name="vocabulary" />
         </div>
 
         <SecondButton

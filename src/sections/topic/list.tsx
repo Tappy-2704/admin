@@ -67,7 +67,7 @@ export function TopicListView() {
                         <br />
                         <tr
                           key={row._id}
-                          className="text-center text-sm sm:text-base dark:text-white"
+                          className="text-center text-sm sm:text-base dark:text-white  rounded-l-xl "
                         >
                           <td className="px-6 py-4 bg-[rgba(78,78,78,0.05)] dark:bg-[#090A0F]">
                             {row._id}
@@ -79,7 +79,7 @@ export function TopicListView() {
                             {fDateTime(row.createdAt)}
                           </td>
 
-                          <td className="flex justify-center px-6 py-4  bg-[rgba(78,78,78,0.05)] dark:bg-[#090A0F] rounded-r-xl">
+                          <td className=" px-6 py-4  bg-[rgba(78,78,78,0.05)] dark:bg-[#090A0F] rounded-r-xl">
                             <MoreMenu
                               onEdit={() => {
                                 setItem(row);

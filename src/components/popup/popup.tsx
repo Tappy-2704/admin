@@ -6,8 +6,15 @@ interface PopupProps {
   children: React.ReactNode;
   title: string;
   open: boolean;
+  className?: string;
 }
-export const Popup = ({ onClose, children, title, open }: PopupProps) => {
+export const Popup = ({
+  onClose,
+  children,
+  title,
+  open,
+  className = "w-full max-w-[448px]",
+}: PopupProps) => {
   return (
     <div>
       {open && (
@@ -21,9 +28,9 @@ export const Popup = ({ onClose, children, title, open }: PopupProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="w-full max-w-[448px]"
+            className={className}
           >
-            <div className="bg-white rounded-2xl shadow-lg min-w-[350px] p-6 text-center relative z-10">
+            <div className="bg-white rounded-2xl shadow-lg min-w-[350px] p-6 text-center relative z-10 max-h-[80vh] overflow-y-auto">
               <button
                 onClick={onClose}
                 className="absolute top-7 right-7 text-gray-500 hover:text-gray-700"

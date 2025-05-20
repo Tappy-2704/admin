@@ -71,7 +71,7 @@ export function CategoryListView() {
                           key={row._id}
                           className="text-center text-sm sm:text-base dark:text-white"
                         >
-                          <td className="px-6 py-4 bg-[rgba(78,78,78,0.05)] dark:bg-[#090A0F]">
+                          <td className="px-6 py-4 bg-[rgba(78,78,78,0.05)] dark:bg-[#090A0F] rounded-l-xl">
                             {row._id}
                           </td>
                           <td className="px-6 py-4 bg-[rgba(78,78,78,0.05)] dark:bg-[#090A0F]">
@@ -84,7 +84,7 @@ export function CategoryListView() {
                             {fDateTime(row.createdAt)}
                           </td>
 
-                          <td className="flex justify-center px-6 py-4  bg-[rgba(78,78,78,0.05)] dark:bg-[#090A0F] rounded-r-xl">
+                          <td className="px-6 py-4  bg-[rgba(78,78,78,0.05)] dark:bg-[#090A0F] rounded-r-xl">
                             <MoreMenu
                               onEdit={() => {
                                 setItem(row);

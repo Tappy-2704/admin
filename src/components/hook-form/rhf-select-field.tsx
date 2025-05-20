@@ -22,7 +22,7 @@ type Props = {
   placeholder?: string;
 };
 
-export function RHFSelect({
+export function RHFSelectField({
   name,
   label,
   helperText,

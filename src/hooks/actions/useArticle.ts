@@ -38,17 +38,20 @@ export const createArticle = async ({
   name,
   vn,
   en,
+  vocabulary,
 }: {
   catId: string;
   name: string;
-  vn: string;
-  en: string;
+  vocabulary: string;
+  vn: string[];
+  en: string[];
 }) => {
   const response = await apiClient.post("/articles/create", {
     name,
     catId,
     vn,
     en,
+    vocabulary,
   });
   return response.data;
 };
@@ -56,20 +59,23 @@ export const updateArticle = async ({
   articleId,
   catId,
   name,
+  vocabulary,
   vn,
   en,
 }: {
   articleId: string;
   catId: string;
   name: string;
-  vn: string;
-  en: string;
+  vocabulary: string;
+  vn: string[];
+  en: string[];
 }) => {
   const response = await apiClient.put(`/articles/update/${articleId}`, {
     catId,
     name,
     vn,
     en,
+    vocabulary,
   });
   return response.data;
 };
